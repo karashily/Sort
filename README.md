@@ -4,10 +4,6 @@ Input is read from file and output is written to a file, which names is given fr
 
 (optional) Time is calculated for the operation and is appended to a file, which name is given from the terminal too :v
 
-to run in terminal or bash:
--compile with g++: "g++ sort.cpp -o <desired executable name>"
--run it: "./<executable-name> <sort-type> <input-file> <output-file> (<time-file>)"
-  
 example:
 "g++ sort.cpp -o sort"
 "./sort insertion data.txt out.txt (time.txt)"

@@ -3,14 +3,15 @@
 #include <vector>
 #include <string>
 #include <chrono>
+
 using namespace std;
 using namespace std::chrono;
 
-#include "selectionSort.h"
-#include "insertionSort.h"
-#include "mergeSort.h"
-#include "quickSort.h"
-#include "hybridSort.h"
+#include "selectionSort.hpp"
+#include "insertionSort.hpp"
+#include "mergeSort.hpp"
+#include "quickSort.hpp"
+#include "hybridSort.hpp"
 
 int main(int argc, char* argv[]) {
 

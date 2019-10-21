@@ -1,5 +1,5 @@
 #pragma once
-#include "mergeSort.h"
+#include "mergeSort.hpp"
 
 void hybridSort(int arr[], int start, int end) {
 	if(start + 1 == end) return;

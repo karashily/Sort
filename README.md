@@ -10,6 +10,6 @@ example:
 
 
 Hybrid Sort: 
-a mix between insertion and merge sorts to exploit the strength of both; 
+a mix between insertion and merge sorts to exploit the strengths of both; 
 insertion sort works best with ordered and almost-ordered lists,
 while merge sort works best in the rest of the cases.

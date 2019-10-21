@@ -141,152 +141,38 @@ int main(int argc, char* argv[]) {
 
 	ofstream fout;
 
-	if (sortType == "0") {
-		auto start = high_resolution_clock::now();
-		selectionSort(input.data(), input.size());
-		auto stop = high_resolution_clock::now();
-		auto duration = duration_cast<microseconds>(stop - start);
+	auto start = high_resolution_clock::now();
 		
-		fout.open("selection.txt", std::ofstream::app);
-		fout << input.size() << "_unsorted: " << duration.count()/1000 << " ms" << endl;
-		fout.close();
-
-		fout.open(outputFile);
-		for (int i = 0; i < input.size(); i++) fout << input[i] << endl;
-		fout.close();
-
-		start = high_resolution_clock::now();
-		selectionSort(input.data(), input.size());
-		stop = high_resolution_clock::now();
-		duration = duration_cast<microseconds>(stop - start);
-		
-		fout.open("selection.txt", std::ofstream::app);
-		fout << input.size() << "_sorted: " << duration.count()/1000 << " ms" << endl;
-		fout.close();
-		
-		fout.open(outputFile);
-		for (int i = 0; i < input.size(); i++) fout << input[i] << endl;
-		fout.close();
-
+	if (sortType == "selection") {
+		selectionSort(input.data(), input.size());	
 	}
-	else if (sortType == "1") {
-		auto start = high_resolution_clock::now();
+	else if (sortType == "insertion") {
 		insertionSort(input.data(), 0, input.size());
-		auto stop = high_resolution_clock::now();
-		auto duration = duration_cast<microseconds>(stop - start);
-		
-		fout.open("insertion.txt", std::ofstream::app);
-		fout << input.size() << "_unsorted: " << duration.count()/1000 << " ms" << endl;
-		
-		fout.close();
-		
-		fout.open(outputFile);
-		for (int i = 0; i < input.size(); i++) fout << input[i] << endl;
-		fout.close();
-
-		start = high_resolution_clock::now();
-		insertionSort(input.data(), 0, input.size());
-		stop = high_resolution_clock::now();
-		duration = duration_cast<microseconds>(stop - start);
-		
-		fout.open("insertion.txt", std::ofstream::app);
-		fout << input.size() << "_sorted: " << duration.count()/1000 << " ms" << endl;
-		fout.close();
-		
-		fout.open(outputFile);
-		for (int i = 0; i < input.size(); i++) fout << input[i] << endl;
-		fout.close();
-
 	}
-	else if (sortType == "2") {
-		auto start = high_resolution_clock::now();
+	else if (sortType == "merge") {
 		mergeSort(input.data(), 0, input.size());
-		auto stop = high_resolution_clock::now();
-		auto duration = duration_cast<microseconds>(stop - start);
-		
-		fout.open("merge.txt", std::ofstream::app);
-		fout << input.size() << "_unsorted: " << duration.count()/1000 << " ms" << endl;
-
-		fout.close();
-		
-		fout.open(outputFile);
-		for (int i = 0; i < input.size(); i++) fout << input[i] << endl;
-		fout.close();
-
-
-		start = high_resolution_clock::now();
-		mergeSort(input.data(), 0, input.size());
-		stop = high_resolution_clock::now();
-		duration = duration_cast<microseconds>(stop - start);
-		
-		fout.open("merge.txt", std::ofstream::app);
-		fout << input.size() << "_sorted: " << duration.count()/1000 << " ms" << endl;
-		fout.close();
-		
-		fout.open(outputFile);
-		for (int i = 0; i < input.size(); i++) fout << input[i] << endl;
-		fout.close();
-
 	}
-	else if (sortType == "3") {
-		auto start = high_resolution_clock::now();
+	else if (sortType == "quick") {
 		quickSort(input.data(), 0, input.size());
-		auto stop = high_resolution_clock::now();
-		auto duration = duration_cast<microseconds>(stop - start);
-		
-		fout.open("quick.txt", std::ofstream::app);
-		fout << input.size() << "_unsorted: " << duration.count()/1000 << " ms" << endl;
-		
-		fout.close();
-		
-		fout.open(outputFile);
-		for (int i = 0; i < input.size(); i++) fout << input[i] << endl;
-		fout.close();
-
-
-		start = high_resolution_clock::now();
-		quickSort(input.data(), 0, input.size());
-		stop = high_resolution_clock::now();
-		duration = duration_cast<microseconds>(stop - start);
-		
-		fout.open("quick.txt", std::ofstream::app);
-		fout << input.size() << "_sorted: " << duration.count()/1000 << " ms" << endl;
-		fout.close();
-		
-		fout.open(outputFile);
-		for (int i = 0; i < input.size(); i++) fout << input[i] << endl;
-		fout.close();
 	}
-	else if (sortType == "4") {
-		auto start = high_resolution_clock::now();
+	else if (sortType == "hybrid") {
 		hybridSort(input.data(), 0, input.size());
-		auto stop = high_resolution_clock::now();
-		auto duration = duration_cast<microseconds>(stop - start);
-		
-		fout.open("hybrid.txt", std::ofstream::app);
-		fout << input.size() << "_unsorted: " << duration.count()/1000 << " ms" << endl;
-		
-		fout.close();
-		
-		fout.open(outputFile);
-		for (int i = 0; i < input.size(); i++) fout << input[i] << endl;
-		fout.close();
-
-
-		start = high_resolution_clock::now();
-		hybridSort(input.data(), 0, input.size());
-		stop = high_resolution_clock::now();
-		duration = duration_cast<microseconds>(stop - start);
-		
-		fout.open("hybrid.txt", std::ofstream::app);
-		fout << input.size() << "_sorted: " << duration.count()/1000 << " ms" << endl;
-		fout.close();
-		
-		fout.open(outputFile);
-		for (int i = 0; i < input.size(); i++) fout << input[i] << endl;
-		fout.close();
-
 	}
+	else cout << sortType << " sorting algorithm isn't supported yet.\n"
+		<< "supported algorithms are:\nselection, insertion, merge, quick " 
+		<< "and hybrid\n";
+
+	auto stop = high_resolution_clock::now();
+	auto duration = duration_cast<microseconds>(stop - start);
+		
+	fout.open(TimeFile, std::ofstream::app);
+	fout << sortType << ": " << input.size() << ": " << duration.count()/1000 
+		<< " ms" << endl;
+	fout.close();
+
+	fout.open(outputFile);
+	for (int i = 0; i < input.size(); i++) fout << input[i] << endl;
+	fout.close();
 
 	return 0;
 }

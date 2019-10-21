@@ -7,11 +7,11 @@
 using namespace std;
 using namespace std::chrono;
 
-#include "selectionSort.hpp"
-#include "insertionSort.hpp"
-#include "mergeSort.hpp"
-#include "quickSort.hpp"
-#include "hybridSort.hpp"
+#include "headers/selectionSort.hpp"
+#include "headers/insertionSort.hpp"
+#include "headers/mergeSort.hpp"
+#include "headers/quickSort.hpp"
+#include "headers/hybridSort.hpp"
 
 int main(int argc, char* argv[]) {
 

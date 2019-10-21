@@ -1,5 +1,10 @@
 #include <iostream>
+#include <fstream>
+#include <vector>
+#include <string>
+#include <chrono>
 using namespace std;
+using namespace std::chrono;
 
 void selectionSort(int arr[], int n) {
 	for (int i = 0; i < n; i++) {
@@ -17,7 +22,7 @@ void selectionSort(int arr[], int n) {
 	}
 }
 
-void insertionSort(int arr[], int n) {
+void insertionSort(int arr[], int start, int n) {
 	for (int i = 1; i < n; i++) {
 		int curr = arr[i];
 		int j = i - 1;
@@ -107,12 +112,23 @@ void quickSort(int arr[], int start, int end) {
 	quickSort(arr, mid + 1, end);
 }
 
-int main() {
-	int arr[] = {6, 1, -1, 6, 8};
-	int n = 5;
-	quickSort(arr, 0, n);
-	for (int i = 0; i < n; i++) {
-		cout << arr[i] << " ";
+void hybirdSort(int arr[], int start, int end) {
+	if (start >= end - 64) {
+		insertionSort(arr, start, end);
+		return;
 	}
+	int mid = (start + end) / 2;
+	hybirdSort(arr, start, mid);
+	hybirdSort(arr, mid, end);
+	merge(arr, start, mid, end);
+}
+
+
+int main(int argc, char* argv[]) {
+	// TODO: read arguments from terminal and use it to read the input, 
+	// write the output and output the time taken by the algorithm.
+	
+	
+
 	return 0;
 }

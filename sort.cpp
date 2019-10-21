@@ -18,7 +18,14 @@ int main(int argc, char* argv[]) {
 	string sortType = argv[1];
 	string inputFile = argv[2];
 	string outputFile = argv[3];
-	string TimeFile = argv[4];
+	string timeFile;
+
+	bool calcTime=false;
+
+	if(argc == 5) {
+		calcTime = true; 
+		timeFile = argv[4];
+	}
 
 	ifstream fin;
 	fin.open(inputFile);
@@ -52,13 +59,16 @@ int main(int argc, char* argv[]) {
 		<< "and hybrid\n";
 		return 0;
 	}
-	auto stop = high_resolution_clock::now();
-	auto duration = duration_cast<microseconds>(stop - start);
+
+	if(calcTime) {
+		auto stop = high_resolution_clock::now();
+		auto duration = duration_cast<microseconds>(stop - start);
 		
-	fout.open(TimeFile, std::ofstream::app);
-	fout << sortType << ": " << input.size() << ": " << duration.count()/1000 
-		<< " ms" << endl;
-	fout.close();
+		fout.open(timeFile, std::ofstream::app);
+		fout << sortType << ": " << input.size() << ": " << duration.count()/1000 
+			<< " ms" << endl;
+		fout.close();
+	}
 
 	fout.open(outputFile);
 	for (int i = 0; i < input.size(); i++) fout << input[i] << endl;

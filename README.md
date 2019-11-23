@@ -4,19 +4,19 @@ Input is read from file and output is written to a file, which names is given fr
 
 (optional) Time is calculated for the operation and is appended to a file, which name is given from the terminal too :v
 
-## Hybrid Sort 
+### Hybrid Sort 
 a mix between insertion and merge sorts to exploit the strengths of both; 
 insertion sort works best with ordered and almost-ordered lists,
 while merge sort works best in the rest of the cases.
 
-### Prerequisites
+## Prerequisites
 
 * g++
 ```sh
 apt-get install g++
 ```
 
-### Installation
+## Installation
 
 1. Build the file using the makefile by simply opening the shell and typing:
 ```sh
@@ -30,9 +30,9 @@ g++ sort.cpp -o sort.out
 ```sh
 ./sort sort_type input_data.txt output_file.txt (time_calc_file.txt)
 ```
-Sort Types:
-- insertion
-- selection
-- merge
-- quick
-- hybrid
+sort_type can be: 
+* insertion 
+* selection 
+* merge 
+* quick 
+* hybrid

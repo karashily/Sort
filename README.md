@@ -10,14 +10,12 @@ insertion sort works best with ordered and almost-ordered lists,
 while merge sort works best in the rest of the cases.
 
 ## Prerequisites
-
 * g++
 ```sh
 apt-get install g++
 ```
 
-## Installation
-
+## Usage
 1. Build the file using the makefile by simply opening the shell and typing:
 ```sh
 make
